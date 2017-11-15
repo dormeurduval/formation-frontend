@@ -25,11 +25,13 @@ class SejourService{
 		this._sejours = [new Sejour('nantes',12),new Sejour('paris',20),new Sejour('tokyo',40)]
 	}
 	
-	public recherche(nom:string){
-			return this._sejours.filter(s => s.getNom()==nom)[0];
+	public recherche(nom:string):Array<Sejour>{
+			return this._sejours.filter(s => s.getNom()==nom);
 	}
 }
 
 let s = new SejourService()
 
-console.log(s.recherche('paris').toString());
+s.recherche('paris').forEach(sejour=>
+	console.log(sejour.toString())
+)

@@ -20,9 +20,11 @@ var SejourService = /** @class */ (function () {
         this._sejours = [new Sejour('nantes', 12), new Sejour('paris', 20), new Sejour('tokyo', 40)];
     }
     SejourService.prototype.recherche = function (nom) {
-        return this._sejours.filter(function (s) { return s.getNom() == nom; })[0];
+        return this._sejours.filter(function (s) { return s.getNom() == nom; });
     };
     return SejourService;
 }());
 var s = new SejourService();
-console.log(s.recherche('paris').toString());
+s.recherche('paris').forEach(function (sejour) {
+    return console.log(sejour.toString());
+});
