@@ -1,0 +1,26 @@
+
+<div style="text-align:center">
+  <h1>
+    Top Collègues
+  </h1>
+</div>
+<h2>Les meilleurs collègies du moment </h2>
+
+
+<form>
+  <div class="form-group">
+    <label >Pseudo </label>
+    <input type="text" class="form-control" id="pseudo" aria-describedby="emailHelp" placeholder="Pseudo" #pseudo>
+  </div>
+  <div class="form-group">
+    <label >URL image </label>
+    <input type="text" class="form-control" id="urlImage" aria-describedby="emailHelp" placeholder="URL Image" #imageUrl>>
+  </div>
+  <button (click)="add(pseudo, imageUrl,toastSuccess)" type="submit" class="btn btn-primary" >Ajouter un nouveau collègue</button>
+  <div style="visibility:hidden" class="alert" #toastSuccess></div>
+</form>
+
+<div class="component">
+<div *ngFor="let col of collegues"><app-un-collegue [collegue]="col"></app-un-collegue> </div>
+</div>
+
