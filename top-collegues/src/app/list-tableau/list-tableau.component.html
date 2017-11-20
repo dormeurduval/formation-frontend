@@ -1,0 +1,23 @@
+<div class="container">            
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Pseudo</th>
+            <th>Score</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let col of collegues">
+              <td><img src={{col.url}} width="50" height="50"></td>
+              <td>{{col.nom}}</td>
+              <td>{{col.score}}</td>
+              <td>
+                  <div class=""><button type="submit" class="btn btn-primary col-4" (click)="jaime(col)">J'aime</button></div>
+                  <div class=""><button type="submit" class="btn btn-success col-4" (click)="jeDeteste(col)">Je déteste</button></div>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>

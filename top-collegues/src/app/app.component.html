@@ -4,7 +4,7 @@
     Top Collègues
   </h1>
 </div>
-<h2>Les meilleurs collègies du moment </h2>
+<h2>Les meilleurs collègues du moment </h2>
 
 
 <form>
@@ -20,7 +20,12 @@
   <div style="visibility:hidden" class="alert" #toastSuccess></div>
 </form>
 
-<div class="component">
-<div *ngFor="let col of collegues"><app-un-collegue [collegue]="col" [collegues]="collegueService"></app-un-collegue> </div>
+<nav>
+    <a routerLink="classique">classique</a>
+    <a routerLink="tableau">tableau</a>
+    <a routerLink="carrousel">carrousel</a>
+</nav>>
+<div id="content">
+    <router-outlet></router-outlet>
 </div>
 

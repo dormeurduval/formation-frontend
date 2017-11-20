@@ -3,19 +3,19 @@ import {Collegue} from '../shared/domain/collegue'
 import {CollegueService} from '../shared/service/collegue.service'
 
 @Component({
- selector: 'app-un-collegue',
- templateUrl: './un-collegue.component.html',
- styleUrls: ['./un-collegue.component.css']
+ selector: 'app-carrousel',
+ templateUrl: './carrousel.component.html',
+ styleUrls: ['./carrousel.component.css']
 })
-export class UnCollegueComponent implements OnInit {
+export class CarrouselComponent implements OnInit {
 
- collegue:Collegue;
- collegues:CollegueService;
+ @Input() collegue:Collegue;
+ @Input() collegues:CollegueService;
 
  constructor(collegue,collegues) { 
-    this.collegue=collegue
-    this.collegues=collegues
-  }
+  this.collegue=collegue
+  this.collegues=collegues
+}
 
  ngOnInit() {
  }

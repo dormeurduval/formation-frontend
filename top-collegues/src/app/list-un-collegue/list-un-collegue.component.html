@@ -1,0 +1,13 @@
+<div class="container-fluid">
+ <div class="row">
+   <div *ngFor="let col of collegues">
+        <div class="card">
+          <img src={{col.url}} width="300" height="300">
+          <h1>{{col.nom}}</h1>
+          <p>{{col.score}}</p>
+         <div class=""><button type="submit" class="btn btn-primary col-4" (click)="jaime(col)">J'aime</button></div>
+         <div class=""><button type="submit" class="btn btn-success col-4" (click)="jeDeteste(col)">Je déteste</button></div>
+        </div>
+   </div>
+ </div>
+</div>

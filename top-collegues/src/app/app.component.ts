@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { CollegueService } from './shared/service/collegue.service';
 import { Collegue } from './shared/domain/collegue';
+import { RouterModule, Routes } from '@angular/router';
+import { ListTableauComponent } from './list-tableau/list-tableau.component';
+import { ListUnCollegueComponent } from './list-un-collegue/list-un-collegue.component';
 
 
 @Component({
@@ -13,24 +16,28 @@ import { Collegue } from './shared/domain/collegue';
 
 export class AppComponent implements OnInit {
   
-  collegueService:CollegueService
+ 
   collegues:Collegue[]
 
+  listComponent:ListUnCollegueComponent
+  constructor(private collegueService:CollegueService){
+
+  }
+
+
   ngOnInit() {
-    this.collegueService= new CollegueService()
-    this.collegueService.listerCollegues().then((tab)=>{this.collegues=tab})
-  }
+    
+    this.collegueService.listerCollegues().then((tab)=>{this.collegues=tab
+                                                        console.log(tab.length)})
+  }
 
   add(pseudo:HTMLInputElement, imageUrl: HTMLInputElement,toastSuccess:HTMLInputElement) {
     // pour récupérer la valeur saisie, utiliser la propriété value
 
     let collegue= new Collegue(pseudo.value,imageUrl.value,0)
 
-    let b:boolean
-
     this.collegueService.sauvegarder(collegue).then(collegue =>{
-
-
+      //this.listComponent.sauvegarder(collegue,this.collegueService)
       toastSuccess.className += "alert alert-success";
       toastSuccess.innerHTML = `Le collègue <strong>${collegue.nom}</strong> a été ajouté avec  succès`
 
